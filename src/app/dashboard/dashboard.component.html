@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Produtos</h2>
+  <button mat-raised-button color="primary" (click)="onAddProduct()">Adicionar Produto</button>
+  <mat-table [dataSource]="products">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+    </ng-container>
+    <!-- Outras colunas para propriedades do produto -->
+
+<ng-container matColumnDef="actions">
+  <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+  <mat-cell *matCellDef="let product">
+    <button mat-icon-button color="primary" (click)="onEditProduct(product.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDeleteProduct(product.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="['name', 'actions']"></mat-header-row>
+<mat-row *matRowDef="let row; columns: ['name', 'actions']"></mat-row>
+</mat-table>
+<h2>Materiais-Prima</h2>
+<button mat-raised-button color="primary" (click)="onAddRawMaterial()">Adicionar Material-Prima</button>
+<mat-table [dataSource]="rawMaterials">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let rawMaterial">{{ rawMaterial.name }}</mat-cell>
+  </ng-container>
+  <!-- Outras colunas para propriedades do material-prima -->
+
+<ng-container matColumnDef="actions">
+  <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+  <mat-cell *matCellDef="let rawMaterial">
+    <button mat-icon-button color="primary" (click)="onEditRawMaterial(rawMaterial.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDeleteRawMaterial(rawMaterial.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="['name', 'actions']"></mat-header-row>
+<mat-row *matRowDef="let row; columns: ['name', 'actions']"></mat-row>
+</mat-table>
+</div>

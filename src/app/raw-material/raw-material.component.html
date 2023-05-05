@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Edit Raw Material' : 'Insumos' }}</h2>
+  <form [formGroup]="rawMaterialForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" formControlName="price" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Unidade de medidas (peso,volume,quantidade,comprimento) </mat-label>
+      <input matInput formControlName="unitOfMeasure" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="rawMaterialForm.invalid">
+      {{ isEditMode ? 'Update' : 'Create' }}
+    </button>
+ </form>
+</div>

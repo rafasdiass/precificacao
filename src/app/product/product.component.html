@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Editar Produto' : 'Criar Produto' }}</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Custo de Produção</mat-label>
+      <input matInput type="number" formControlName="productionCost" (input)="calculateSuggestedSalePrice()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Margem de Lucro (%)</mat-label>
+      <input matInput formControlName="profitMargin" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Preço de Venda Sugerido</mat-label>
+      <input matInput type="number" formControlName="suggestedSalePrice" readonly />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="productForm.invalid">
+      {{ isEditMode ? 'Atualizar' : 'Criar' }}
+    </button>
+  </form>
+</div>
