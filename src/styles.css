@@ -61,6 +61,23 @@ body {
   font-weight:500;
 }
 
+.controll-dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.controll-text {
+  margin-bottom: 0 !important;
+  font-weight: 700;
+}
+
+hr {
+  margin: 0;
+  height: 2px;
+}
+
 
 
 .nav-link {
